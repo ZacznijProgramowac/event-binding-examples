@@ -1,0 +1,69 @@
+<div style="height: 120vh">
+  <div>
+    <h1>Event Binding - przykłady</h1>
+    <!-- Bindowanie na event click -->
+    <button class="btn" (click)="onClickButton()">Just click me please!</button>
+  </div>
+
+  <!-- Bindowanie na event input -->
+  <div>
+    <input placeholder="Zacznij pisać" (input)="text = $event.target.value" />
+    {{ text }}
+  </div>
+
+  <!-- Blur, wyjście z pola kasuje wartość. Wykorzytany jest trick z eventem input, aby wywołać
+    zdarzenie. Pozwoli to wyświetlić wartość za pomocą interpolacji. -->
+  <div>
+    <input
+      placeholder="Wpisz coś i opuść"
+      #inputText
+      (input)="(0)"
+      (blur)="inputText.value = ''"
+    />
+    {{ inputText.value }}
+  </div>
+
+  <!-- Wykorzystany event focus. -->
+  <div>
+    <input
+      placeholder="Kliknij"
+      (focusout)="focus = 'I lost your focus :-('"
+      (focusin)="focus = ''"
+    />
+    {{ focus }}
+  </div>
+
+  <!-- Do eventu mousemove podpinamy metodę, gdzie przesyłamy współrzędne myszki.
+      Za pomocą interpolacji, współrzędne są wyświetlone. -->
+  <div
+    class="mouse-container"
+    (mousemove)="onMouseMove($event.clientX, $event.clientY)"
+  >
+    Najedź myszką!
+    <br />
+    {{ mousePosition }}
+  </div>
+
+  <!-- Za pomocą klawisza enter, dodajemy wartości do listy.
+       Za pomocą klawisza escape, czyścimy listę -->
+  <div>
+    <input
+      #enterInput
+      placeholder="Wpisz coś i naciśnij enter, a potem escape"
+      (keyup.enter)="onEnter(enterInput.value); enterInput.value = ''"
+      (keyup.escape)="enterList = []"
+    />
+    <ul>
+      <li *ngFor="let item of enterList">{{ item }}</li>
+    </ul>
+  </div>
+
+  <!-- Event kółka myszki pokazuje spinner. Opuszczenie pola chowa spinner -->
+  <div
+    class="mouse-container"
+    (wheel)="zoom($event.deltaY); $event.preventDefault()"
+    [style.transform]="'scale(' + scale + ')'"
+  >
+    Zakręć kólkiem myszki!
+  </div>
+</div>
