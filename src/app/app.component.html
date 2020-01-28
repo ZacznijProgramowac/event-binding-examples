@@ -1,19 +1,14 @@
 <div>
   <h1>Event Binding - przykłady</h1>
   <!-- Bindowanie na event click -->
-  <button
-    class="btn"
-    (click)="onClickButton()">
+  <button class="btn" (click)="onClickButton()">
     Just click me please!
   </button>
 </div>
 
 <!-- Bindowanie na event input -->
 <div>
-  <input
-    placeholder="Zacznij pisać"
-    (input)="text = $event.target.value"
-  />
+  <input placeholder="Zacznij pisać" (input)="text = $event.target.value" />
   {{ text }}
 </div>
 
