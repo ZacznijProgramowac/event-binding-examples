@@ -9,10 +9,7 @@
 
 <!-- Bindowanie na event input -->
 <div>
-  <input
-    placeholder="Zacznij pisać"
-    (input)="text = $event.target.value"
-  />
+  <input placeholder="Zacznij pisać" (input)="text = $event.target.value" />
   {{ text }}
 </div>
 
