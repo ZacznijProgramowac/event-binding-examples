@@ -1,3 +1,4 @@
+
 <div>
   <h1>Event Binding - przykłady</h1>
   <!-- Bindowanie na event click -->
@@ -6,9 +7,13 @@
   </button>
 </div>
 
+
 <!-- Bindowanie na event input -->
 <div>
-  <input placeholder="Zacznij pisać" (input)="text = $event.target.value" />
+  <input
+    placeholder="Zacznij pisać"
+    (input)="text = $event.target.value"
+  />
   {{ text }}
 </div>
 
@@ -18,7 +23,7 @@
   <input
     placeholder="Wpisz coś i opuść"
     #inputText
-    (input)="0"
+    (input)="(0)"
     (blur)="inputText.value = ''"
   />
   {{ inputText.value }}
