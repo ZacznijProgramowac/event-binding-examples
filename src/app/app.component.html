@@ -1,12 +1,11 @@
-
 <div>
   <h1>Event Binding - przykłady</h1>
+
   <!-- Bindowanie na event click -->
   <button class="btn" (click)="onClickButton()">
     Just click me please!
   </button>
 </div>
-
 
 <!-- Bindowanie na event input -->
 <div>
@@ -55,7 +54,7 @@
 <div>
   <input
     #enterInput
-    placeholder="Wpisz coś i naciśnij enter, a potem escape"
+    placeholder="Enter i escape"
     (keyup.enter)="onEnter(enterInput.value); enterInput.value = ''"
     (keyup.escape)="enterList = []"
   />
