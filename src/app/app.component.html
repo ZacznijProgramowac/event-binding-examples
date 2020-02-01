@@ -18,7 +18,7 @@
   <input
     placeholder="Wpisz coś i opuść"
     #inputText
-    (input)="(0)"
+    (input)="0"
     (blur)="inputText.value = ''"
   />
   {{ inputText.value }}
@@ -27,8 +27,9 @@
 <!-- Wykorzystany event focus. -->
 <div>
   <input
-    placeholder="Kliknij"
-    (focusout)="focus = 'I lost your focus :-('" (focusin)="focus = ''"
+    placeholder="Kliknij i odkliknij"
+    (focusout)="focus = 'I lost your focus :-('"
+    (focusin)="focus = ''"
   />
   {{ focus }}
 </div>
